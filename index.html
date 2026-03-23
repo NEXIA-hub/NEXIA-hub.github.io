@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexIA — Agents IA pour toutes les entreprises | Automatisation E-commerce, Restaurant, Beauté</title>
+<meta name="description" content="Agents IA pour e-commerce, restaurants, coiffeurs et PME au Cameroun. Répondez à vos clients 24h/24 automatiquement. +35% CA en moyenne. Garantie 14 jours satisfait ou remboursé.">
+<meta property="og:title" content="NexIA — Agents IA pour toutes les entreprises au Cameroun">
+<meta property="og:description" content="Automatisez votre support client et vos ventes automatiquement. Opérationnel en 3 à 7 jours. Garantie satisfait ou remboursé.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nexia.pages.dev">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nexia.pages.dev">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "NexIA",
+  "description": "Agents IA pour automatiser le support client des entreprises au Cameroun",
+  "url": "https://nexia.pages.dev",
+  "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "availableLanguage": "French"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question","name": "Est-ce que mes clients sauront qu'ils parlent à une IA ?","acceptedAnswer": {"@type": "Answer","text": "Non. L'agent utilise le nom et le ton que vous choisissez. Vos clients auront l'impression de parler à un membre de votre équipe."}},
+    {"@type": "Question","name": "Combien de temps pour que l'agent soit opérationnel ?","acceptedAnswer": {"@type": "Answer","text": "Entre 3 et 7 jours selon la complexité de votre activité."}}
+  ]
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Satoshi:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --dark:#05050D;--card:#0C0C18;--card2:#111120;
+  --border:#181830;--border2:#222240;
+  --accent:#7B6FF0;--accent2:#00E5B4;--gold:#FFB800;
+  --text:#EEEEF8;--muted:#7A7A9A;--white:#FFFFFF;
+}
+body{background:var(--dark);color:var(--text);font-family:'Satoshi',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4,.logo{font-family:'Clash Display',sans-serif}
+a{text-decoration:none;color:inherit}
+
+/* STICKY TOP BAR */
+.sticky-bar{background:var(--accent);color:#fff;text-align:center;padding:.5rem 1rem;font-size:13px;font-weight:500;position:relative;z-index:200}
+.sticky-bar span{color:var(--accent2)}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(5,5,13,0.97);backdrop-filter:blur(12px);z-index:150;position:relative}
+.logo{font-size:1.5rem;font-weight:700;letter-spacing:-0.5px}.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{color:var(--muted);font-size:13.5px;transition:color .2s;font-weight:500}.nav-links a:hover{color:var(--text)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;display:block}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;flex-direction:column;gap:0;background:rgba(5,5,13,0.99);border-bottom:1px solid var(--border);padding:0}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:1rem 2rem;color:var(--muted);font-size:15px;border-bottom:1px solid var(--border);transition:color .2s}.mobile-menu a:hover{color:var(--text)}
+
+/* BUTTONS */
+.btn{padding:.6rem 1.3rem;border-radius:8px;font-family:'Satoshi',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;border:none;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:#6a5ee0;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border2)}.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-teal{background:var(--accent2);color:#000;font-weight:600}.btn-teal:hover{background:#00cca0;transform:translateY(-1px)}
+.btn-wa{background:#25D366;color:#fff;font-weight:600}.btn-wa:hover{background:#1fb856;transform:translateY(-1px)}
+
+/* HERO */
+.hero{padding:5rem 2rem 4rem;max-width:1200px;margin:0 auto;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(123,111,240,0.1);border:1px solid rgba(123,111,240,0.25);color:var(--accent);font-size:12px;padding:.4rem 1rem;border-radius:20px;margin-bottom:1.5rem;font-weight:500}
+.pulse{width:7px;height:7px;background:var(--accent2);border-radius:50%;display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.hero h1{font-size:clamp(2rem,5.5vw,4rem);font-weight:700;line-height:1.08;letter-spacing:-1px;margin-bottom:1.2rem}
+.hero h1 .a1{color:var(--accent)}.hero h1 .a2{color:var(--accent2)}.hero h1 .a3{color:var(--gold)}
+.hero-sub{color:var(--muted);font-size:clamp(14px,2vw,1.05rem);max-width:620px;margin:0 auto 2rem;line-height:1.8}
+.hero-proof{display:inline-flex;align-items:center;gap:.6rem;background:rgba(0,229,180,0.08);border:1px solid rgba(0,229,180,0.2);color:var(--accent2);font-size:12.5px;padding:.4rem 1rem;border-radius:20px;margin-bottom:2rem;font-weight:500}
+.hero-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+.trust-bar{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;padding:1.2rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trust-item{display:flex;align-items:center;gap:.5rem;font-size:12.5px;color:var(--muted);font-weight:500}
+.trust-dot{width:7px;height:7px;background:var(--accent2);border-radius:50%;display:inline-block;flex-shrink:0}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;max-width:1000px;margin:2.5rem auto 0}
+.stat{background:var(--card);padding:1.5rem .8rem;text-align:center}
+.stat-n{font-family:'Clash Display',sans-serif;font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;color:var(--white)}
+.stat-l{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4}
+
+/* SECTIONS */
+section{padding:4rem 2rem;max-width:1200px;margin:0 auto}
+.stag{font-size:11px;font-weight:600;color:var(--accent);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.8rem}
+.stitle{font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:700;letter-spacing:-0.3px;margin-bottom:.8rem;line-height:1.2}
+.ssub{color:var(--muted);max-width:540px;font-size:14.5px;line-height:1.8}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center;margin-top:2.5rem;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.5rem;overflow:hidden}
+@media(max-width:700px){.about-grid{grid-template-columns:1fr;text-align:center}}
+.about-avatar{width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:'Clash Display',sans-serif;font-size:3rem;font-weight:700;color:#fff;margin:0 auto;border:3px solid rgba(123,111,240,0.3)}
+.about-name{font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
+.about-role{font-size:13px;color:var(--accent2);font-weight:500;margin-bottom:1rem}
+.about-text{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:1.2rem}
+.about-links{display:flex;gap:.8rem;flex-wrap:wrap}
+.about-link{display:inline-flex;align-items:center;gap:.4rem;font-size:13px;padding:.4rem .9rem;border-radius:8px;border:1px solid var(--border2);color:var(--muted);transition:all .2s}.about-link:hover{border-color:var(--accent);color:var(--accent)}
+
+/* SECTEUR TABS */
+.sector-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:2rem 0}
+.tab{padding:.5rem 1.1rem;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;border:1px solid var(--border2);background:transparent;color:var(--muted)}
+.tab.active,.tab:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.sector-content{display:none}.sector-content.active{display:block}
+.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+@media(max-width:700px){.sector-grid{grid-template-columns:1fr}}
+.sector-img{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem}
+.sector-problems{display:flex;flex-direction:column;gap:.8rem}
+.sector-problem{display:flex;align-items:flex-start;gap:.8rem;padding:.9rem;background:rgba(255,107,107,0.05);border:1px solid rgba(255,107,107,0.15);border-radius:10px}
+.sector-solution{display:flex;align-items:flex-start;gap:.8rem;padding:.9rem;background:rgba(0,229,180,0.05);border:1px solid rgba(0,229,180,0.15);border-radius:10px;margin-top:1rem}
+.s-ico{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.s-title{font-size:.83rem;font-weight:600;margin-bottom:.2rem}
+.s-title.red{color:#FF8A8A}.s-title.green{color:var(--accent2)}
+.s-text{font-size:12.5px;color:var(--muted);line-height:1.5}
+.sector-info h3{font-size:1.3rem;font-weight:700;margin-bottom:.5rem}
+.sector-info p{font-size:14px;color:var(--muted);margin-bottom:1.2rem;line-height:1.7}
+.sector-features{display:flex;flex-direction:column;gap:.6rem}
+.sf{display:flex;align-items:center;gap:.7rem;font-size:13.5px}
+.sf-check{width:20px;height:20px;border-radius:50%;background:rgba(0,229,180,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:var(--accent2)}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:2.5rem}
+.scard{background:var(--card);padding:1.8rem;transition:background .2s;position:relative}
+.scard:hover{background:#0f0f20}
+.snew{position:absolute;top:1rem;right:1rem;background:var(--accent);color:#fff;font-size:10px;font-weight:600;padding:.2rem .6rem;border-radius:20px}
+.sico{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:20px}
+.ip{background:rgba(123,111,240,0.12)}.it{background:rgba(0,229,180,0.1)}.ia{background:rgba(255,184,0,0.1)}.ir{background:rgba(255,107,107,0.1)}
+.scard h3{font-size:.9rem;font-weight:600;margin-bottom:.5rem;color:var(--white)}
+.scard p{font-size:13px;color:var(--muted);line-height:1.7}
+
+/* PROOF SECTION */
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2.5rem}
+.proof-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem}
+.proof-sector{display:inline-block;font-size:10px;font-weight:600;padding:.25rem .7rem;border-radius:10px;margin-bottom:1rem}
+.proof-before-after{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem}
+.pa-box{padding:.8rem;border-radius:8px;text-align:center}
+.pa-box.before{background:rgba(255,107,107,0.05);border:1px solid rgba(255,107,107,0.15)}
+.pa-box.after{background:rgba(0,229,180,0.05);border:1px solid rgba(0,229,180,0.15)}
+.pa-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:.3rem}
+.pa-label.red{color:#FF8A8A}.pa-label.green{color:var(--accent2)}
+.pa-val{font-family:'Clash Display',sans-serif;font-size:1.5rem;font-weight:700;color:var(--white)}
+.pa-desc{font-size:11px;color:var(--muted)}
+.proof-quote{font-size:13px;color:var(--muted);font-style:italic;line-height:1.7;margin-bottom:1rem;padding-top:1rem;border-top:1px solid var(--border)}
+.proof-author{display:flex;align-items:center;gap:.7rem}
+.proof-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.proof-name{font-size:.82rem;font-weight:600;color:var(--white)}
+.proof-role{font-size:11px;color:var(--muted)}
+
+/* FEATURES */
+.features-big{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:3rem}
+@media(max-width:700px){.features-big{grid-template-columns:1fr}}
+.features-list{display:flex;flex-direction:column;gap:1rem}
+.fi{display:flex;gap:1rem;align-items:flex-start;padding:1.2rem;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:border-color .2s}
+.fi:hover{border-color:var(--accent)}
+.fi-ico{width:38px;height:38px;border-radius:9px;background:rgba(123,111,240,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px}
+.fi h4{font-size:.87rem;font-weight:600;color:var(--white);margin-bottom:.3rem}
+.fi p{font-size:12.5px;color:var(--muted);line-height:1.6}
+.metrics-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem}
+.metrics-title{font-size:.82rem;font-weight:600;color:var(--muted);margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:1px}
+.metric-row{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
+.metric-label{font-size:13px;color:var(--muted);width:150px;flex-shrink:0}
+.metric-bar{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.metric-fill{height:100%;border-radius:4px}
+.metric-val{font-size:13px;font-weight:600;color:var(--white);width:42px;text-align:right}
+
+/* COMPARE */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+@media(max-width:600px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{border-radius:14px;overflow:hidden}
+.compare-head{padding:1.2rem 1.5rem;font-size:.9rem;font-weight:600;display:flex;align-items:center;gap:.6rem}
+.compare-head.bad{background:rgba(255,107,107,0.1);color:#FF8A8A;border:1px solid rgba(255,107,107,0.2);border-bottom:none}
+.compare-head.good{background:rgba(0,229,180,0.1);color:var(--accent2);border:1px solid rgba(0,229,180,0.2);border-bottom:none}
+.compare-body{background:var(--card);padding:1.2rem 1.5rem;border:1px solid var(--border)}
+.compare-item{display:flex;align-items:flex-start;gap:.7rem;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:13px}
+.compare-item:last-child{border:none}
+.ci-ico{flex-shrink:0;font-size:14px;margin-top:2px}
+
+/* CHANNELS */
+.channels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:1rem;margin-top:2rem}
+.channel{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem .8rem;text-align:center;transition:border-color .2s}
+.channel:hover{border-color:var(--accent)}
+.channel-ico{font-size:1.8rem;margin-bottom:.6rem}
+.channel h4{font-size:.82rem;font-weight:600;color:var(--white);margin-bottom:.2rem}
+.channel p{font-size:11px;color:var(--muted)}
+
+/* PROCESS */
+.how-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:2.5rem;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.step{padding:1.8rem 1.2rem;background:var(--card);border-right:1px solid var(--border);text-align:center}
+.step:last-child{border-right:none}
+.step-n{width:44px;height:44px;border-radius:50%;border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto .8rem;font-family:'Clash Display',sans-serif;font-weight:700;color:var(--accent);font-size:.95rem}
+.step h3{font-size:.85rem;font-weight:600;color:var(--white);margin-bottom:.4rem}
+.step p{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* GARANTIE */
+.garantie-block{margin-top:2.5rem;border-radius:20px;overflow:hidden;border:1px solid rgba(0,229,180,0.2)}
+.garantie-top{background:rgba(0,229,180,0.06);padding:3rem 2rem;text-align:center}
+.garantie-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(0,229,180,0.1);border:1px solid rgba(0,229,180,0.25);color:var(--accent2);font-size:12px;padding:.35rem .9rem;border-radius:20px;margin-bottom:1.2rem;font-weight:500}
+.garantie-top h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:var(--white);margin-bottom:.8rem;line-height:1.2}
+.garantie-top h2 span{color:var(--accent2)}
+.garantie-top p{color:var(--muted);max-width:520px;margin:0 auto 2rem;font-size:14px;line-height:1.8}
+.garantie-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,229,180,0.08)}
+.gs{background:var(--card);padding:1.8rem 1rem;text-align:center}
+.gs-num{font-family:'Clash Display',sans-serif;font-size:2.2rem;font-weight:700;color:var(--accent2);margin-bottom:.4rem}
+.gs h4{font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:.3rem}
+.gs p{font-size:12.5px;color:var(--muted);line-height:1.5}
+
+/* FAQ */
+.faq-list{margin-top:2rem;display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.faq-item{background:var(--card);padding:1.2rem 1.5rem;cursor:pointer;transition:background .2s}
+.faq-item:hover{background:var(--card2)}
+.faq-q{font-size:.9rem;font-weight:500;color:var(--white);display:flex;justify-content:space-between;align-items:center;gap:1rem;line-height:1.4}
+.faq-a{font-size:13px;color:var(--muted);margin-top:.7rem;display:none;line-height:1.7}
+.faq-item.open .faq-a{display:block}
+.faq-arr{color:var(--accent);font-size:18px;transition:transform .2s;flex-shrink:0}
+.faq-item.open .faq-arr{transform:rotate(45deg)}
+
+/* CTA */
+.cta-section{text-align:center;padding:5rem 2rem;border-top:1px solid var(--border)}
+.cta-section h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-0.3px;margin-bottom:1rem;line-height:1.2}
+.cta-section p{color:var(--muted);margin-bottom:2rem;font-size:14.5px;max-width:520px;margin-left:auto;margin-right:auto}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+.cta-form{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;max-width:500px;margin:0 auto 1rem}
+.cta-form input{flex:1;min-width:180px;padding:.75rem 1rem;background:var(--card);border:1px solid var(--border2);border-radius:8px;color:var(--text);font-family:'Satoshi',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+.cta-form input:focus{border-color:var(--accent)}
+.cta-form input::placeholder{color:var(--muted)}
+.cta-reassurance{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.cta-re-item{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:.4rem}
+.success-msg{display:none;margin-top:1rem;padding:.8rem 1.5rem;background:rgba(0,229,180,0.08);border:1px solid rgba(0,229,180,0.25);border-radius:8px;color:var(--accent2);font-size:14px;text-align:center}
+.delay-badges{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem}
+.delay-badge{display:flex;align-items:center;gap:.5rem;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:.4rem .9rem;font-size:12px;color:var(--muted);font-weight:500}
+.dbdot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+
+/* MOBILE STICKY CTA */
+.mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(5,5,13,0.97);border-top:1px solid var(--border);padding:.8rem 1.2rem;z-index:200;backdrop-filter:blur(10px)}
+.mobile-sticky-inner{display:flex;gap:.7rem;align-items:center}
+.mobile-sticky-inner .btn{flex:1;justify-content:center;padding:.7rem 1rem;font-size:13.5px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:2rem}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem}
+.footer-brand .footer-logo{font-family:'Clash Display',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:.5rem}.footer-logo span{color:var(--accent)}
+.footer-brand p{font-size:12.5px;color:var(--muted);line-height:1.6;max-width:240px}
+.footer-contact{display:flex;flex-direction:column;gap:.5rem}
+.footer-contact a{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:.5rem;transition:color .2s}.footer-contact a:hover{color:var(--text)}
+.footer-links-col{display:flex;flex-direction:column;gap:.4rem}
+.footer-links-col h4{font-size:12px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:1px;margin-bottom:.3rem}
+.footer-links-col a{font-size:12.5px;color:var(--muted);transition:color .2s}.footer-links-col a:hover{color:var(--text)}
+.footer-bottom{max-width:1200px;margin:.8rem auto 0;padding-top:.8rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.footer-bottom p{font-size:11.5px;color:var(--muted)}
+
+/* MOBILE */
+@media(max-width:768px){
+  .sticky-bar{font-size:11.5px;padding:.4rem .8rem}
+  nav{padding:.9rem 1rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero{padding:3.5rem 1rem 3rem}
+  .hero h1{font-size:1.9rem;letter-spacing:-0.3px}
+  .hero-btns{flex-direction:column;align-items:center}.hero-btns .btn{width:100%;max-width:300px;justify-content:center}
+  .stats-row{grid-template-columns:repeat(3,1fr)}.stat:nth-child(4),.stat:nth-child(5){display:none}
+  section{padding:3rem 1rem}
+  .stitle{font-size:1.5rem}
+  .how-grid{grid-template-columns:1fr 1fr}
+  .step:nth-child(5){grid-column:span 2}
+  .garantie-steps{grid-template-columns:1fr}
+  .compare-grid{grid-template-columns:1fr}
+  .cta-buttons{flex-direction:column;align-items:center}.cta-buttons .btn{width:100%;max-width:300px;justify-content:center}
+  .cta-form{flex-direction:column;align-items:stretch}.cta-form input,.cta-form .btn{width:100%}
+  .mobile-sticky{display:block}
+  .footer-inner{flex-direction:column}.footer-bottom{flex-direction:column;text-align:center}
+  .about-grid{grid-template-columns:1fr;text-align:center}.about-links{justify-content:center}
+  .features-big{grid-template-columns:1fr}
+  .sector-grid{grid-template-columns:1fr}
+}
+@media(max-width:420px){
+  .stats-row{grid-template-columns:repeat(2,1fr)}.stat:nth-child(5){display:none}
+  .how-grid{grid-template-columns:1fr}.step:nth-child(5){grid-column:span 1}
+  .channels-grid{grid-template-columns:repeat(2,1fr)}
+  .sector-tabs .tab{font-size:11.5px;padding:.4rem .7rem}
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY TOP BAR -->
+<div class="sticky-bar">🚀 Opérationnel en <span>3 à 7 jours</span> · Garantie <span>satisfait ou remboursé 14 jours</span> · Aucun engagement</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Nex<span>IA</span></div>
+  <ul class="nav-links">
+    <li><a href="#apropos">À propos</a></li>
+    <li><a href="#equipe">Équipe</a></li>
+    <li><a href="#secteurs">Secteurs</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#garantie">Garantie</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <button class="btn btn-teal" onclick="toggleContact()" style="display:flex;align-items:center;gap:.4rem">
+    Nous contacter ▾
+  </button>
+  <div id="contactDropdown" style="display:none;position:absolute;top:64px;right:2rem;background:var(--card2);border:1px solid var(--border2);border-radius:12px;padding:.8rem;z-index:300;min-width:220px;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
+    <a href="mailto:nkougangmarcel2@gmail.com" style="display:flex;align-items:center;gap:.7rem;padding:.7rem 1rem;border-radius:8px;color:var(--text);font-size:14px;transition:background .2s" onmouseover="this.style.background='var(--border)'" onmouseout="this.style.background='transparent'">✉️ Email</a>
+    <a href="https://wa.me/237671398551?text=Bonjour%20Marcel%2C%20je%20souhaite%20obtenir%20une%20d%C3%A9mo%20de%20NexIA." target="_blank" style="display:flex;align-items:center;gap:.7rem;padding:.7rem 1rem;border-radius:8px;color:var(--text);font-size:14px;transition:background .2s" onmouseover="this.style.background='var(--border)'" onmouseout="this.style.background='transparent'">💬 WhatsApp</a>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#apropos" onclick="closeMenu()">👤 À propos</a>
+  <a href="#secteurs" onclick="closeMenu()">🎯 Secteurs</a>
+  <a href="#services" onclick="closeMenu()">⚡ Services</a>
+  <a href="#resultats" onclick="closeMenu()">📊 Résultats</a>
+  <a href="#garantie" onclick="closeMenu()">🛡️ Garantie</a>
+  <a href="#faq" onclick="closeMenu()">❓ FAQ</a>
+  <a href="#contact" onclick="closeMenu()" style="color:var(--accent2);font-weight:600">✉️ Nous contacter →</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge"><span class="pulse"></span> Agents IA · Cameroun & Afrique</div>
+  <h1>Répondez à vos clients,<br><span class="a1">prenez des réservations</span><br>et <span class="a2">vendez automatiquement</span><br><span class="a3">grâce à l'IA</span></h1>
+  <p class="hero-sub">NexIA crée des agents IA sur mesure pour votre activité — e-commerce, restaurant, salon de beauté, dropshipping et plus — qui gèrent vos clients 24h/24 pendant que vous vous concentrez sur ce qui compte vraiment.</p>
+  <div class="hero-proof">✅ Plus de 10 entreprises au Cameroun et en Afrique font confiance à NexIA</div>
+  <div class="hero-btns">
+    <button class="btn btn-teal" style="padding:.75rem 1.8rem;font-size:15px" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Nous contacter →</button>
+    <button class="btn btn-outline" style="padding:.75rem 1.8rem;font-size:15px" onclick="document.getElementById('secteurs').scrollIntoView({behavior:'smooth'})">Voir mon secteur →</button>
+  </div>
+  <div class="trust-bar">
+    <div class="trust-item"><span class="trust-dot"></span> Zéro compétence technique</div>
+    <div class="trust-item"><span class="trust-dot"></span> Opérationnel en 3 à 7 jours</div>
+    <div class="trust-item"><span class="trust-dot"></span> Satisfait ou remboursé 14j</div>
+    <div class="trust-item"><span class="trust-dot"></span> Support en français</div>
+  </div>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-n">24/7</div><div class="stat-l">Disponibilité agent</div></div>
+    <div class="stat"><div class="stat-n">3s</div><div class="stat-l">Temps de réponse</div></div>
+    <div class="stat"><div class="stat-n">-70%</div><div class="stat-l">Messages perdus</div></div>
+    <div class="stat"><div class="stat-n">+35%</div><div class="stat-l">CA moyen</div></div>
+    <div class="stat"><div class="stat-n">3-7j</div><div class="stat-l">Mise en place</div></div>
+  </div>
+</div>
+
+<!-- À PROPOS -->
+<section id="apropos">
+  <div class="stag">À propos</div>
+  <h2 class="stitle">Qui est derrière NexIA ?</h2>
+  <div class="about-grid">
+    <div>
+      <div class="about-avatar">MN</div>
+    </div>
+    <div>
+      <div class="about-name">Marcel Nkougang</div>
+      <div class="about-role">Fondateur & Expert en Automatisation IA</div>
+      <p class="about-text">Passionné d'automatisation et d'intelligence artificielle, j'ai créé NexIA pour aider les entrepreneurs africains à tirer parti de l'IA sans avoir besoin de compétences techniques. J'accompagne des boutiques e-commerce, restaurants, salons et PME à automatiser leur support client et à augmenter leurs ventes grâce à des agents IA sur mesure déployés sur WhatsApp, Instagram et Facebook.</p>
+      <p class="about-text" style="margin-bottom:1.2rem">Basé à Yaoundé, Cameroun — je travaille avec des clients au Cameroun, en Afrique et en Europe.</p>
+      <a href="#contact" class="btn btn-teal" style="margin-top:.5rem">Nous contacter →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- EQUIPE -->
+<section id="equipe" style="background:rgba(123,111,240,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);max-width:100%;padding:4rem 2rem">
+<div style="max-width:1200px;margin:0 auto">
+  <div class="stag">Notre équipe</div>
+  <h2 class="stitle">Des experts passionnés par l'IA</h2>
+  <p class="ssub">Une équipe dédiée à vous accompagner de A à Z dans votre transformation digitale.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:2.5rem">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:center;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:'Clash Display',sans-serif;font-size:1.8rem;font-weight:700;color:#fff;margin:0 auto 1rem">MN</div>
+      <div style="font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.3rem">Marcel Nkougang</div>
+      <div style="font-size:12px;color:var(--accent2);font-weight:500;margin-bottom:.8rem">Fondateur & Expert IA</div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6">Spécialiste en automatisation IA et développement d'agents intelligents. Accompagne les PME africaines dans leur transformation digitale.</p>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:center;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent2),var(--gold));display:flex;align-items:center;justify-content:center;font-family:'Clash Display',sans-serif;font-size:1.8rem;font-weight:700;color:#000;margin:0 auto 1rem">TM</div>
+      <div style="font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.3rem">Équipe Technique</div>
+      <div style="font-size:12px;color:var(--accent2);font-weight:500;margin-bottom:.8rem">Développement & Intégration</div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6">Nos développeurs configurent et intègrent votre agent IA sur tous vos canaux en 3 à 7 jours. Disponibles pour le support technique.</p>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:center;transition:border-color .2s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#FF6B6B,var(--accent));display:flex;align-items:center;justify-content:center;font-family:'Clash Display',sans-serif;font-size:1.8rem;font-weight:700;color:#fff;margin:0 auto 1rem">SC</div>
+      <div style="font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.3rem">Support Client</div>
+      <div style="font-size:12px;color:var(--accent2);font-weight:500;margin-bottom:.8rem">Suivi & Optimisation</div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6">Notre équipe de suivi monitore les performances de votre agent chaque mois et l'optimise en continu pour de meilleurs résultats.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTEURS -->
+<section id="secteurs" style="background:rgba(123,111,240,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);max-width:100%;padding:4rem 2rem">
+<div style="max-width:1200px;margin:0 auto">
+  <div class="stag">Par secteur</div>
+  <h2 class="stitle">Votre secteur, votre solution</h2>
+  <p class="ssub">Peu importe votre activité — NexIA s'adapte à vos besoins spécifiques.</p>
+  <div class="sector-tabs">
+    <button class="tab active" onclick="showSector(event,'ecom')">🛒 E-commerce</button>
+    <button class="tab" onclick="showSector(event,'resto')">🍽️ Restaurant</button>
+    <button class="tab" onclick="showSector(event,'coiffeur')">✂️ Salon / Beauté</button>
+    <button class="tab" onclick="showSector(event,'drop')">📦 Dropshipping</button>
+    <button class="tab" onclick="showSector(event,'digital')">🎓 Formations</button>
+    <button class="tab" onclick="showSector(event,'immo')">🏠 Immobilier</button>
+    <button class="tab" onclick="showSector(event,'clinic')">💊 Clinique</button>
+  </div>
+
+  <div class="sector-content active" id="sector-ecom">
+    <div class="sector-grid">
+      <div class="sector-img">
+        <div class="sector-problems">
+          <div class="sector-problem"><div class="s-ico">😴</div><div><div class="s-title red">Ventes perdues la nuit</div><div class="s-text">Clients qui posent des questions à 23h et achètent ailleurs le lendemain matin.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">🛒</div><div><div class="s-title red">Paniers abandonnés</div><div class="s-text">Des centaines de FCFA perdus chaque jour sans relance automatique.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">😤</div><div><div class="s-title red">Mêmes questions en boucle</div><div class="s-text">"C'est disponible en taille M ?" — 50 fois par jour.</div></div></div>
+        </div>
+        <div class="sector-solution"><div class="s-ico">🤖</div><div><div class="s-title green">NexIA gère tout automatiquement</div><div class="s-text">Réponses instantanées, relances paniers, suivi commandes — 24h/24 sans vous.</div></div></div>
+      </div>
+      <div class="sector-info">
+        <h3>E-commerce & boutiques en ligne</h3>
+        <p>Vendez sur Instagram, WhatsApp ou votre site — NexIA répond à vos clients instantanément et booste vos ventes automatiquement.</p>
+        <div class="sector-features">
+          <div class="sf"><div class="sf-check">✓</div> Réponses automatiques sur stocks, prix, tailles</div>
+          <div class="sf"><div class="sf-check">✓</div> Relance automatique des paniers abandonnés</div>
+          <div class="sf"><div class="sf-check">✓</div> Suivi de commandes en temps réel</div>
+          <div class="sf"><div class="sf-check">✓</div> Collecte d'avis clients automatique</div>
+          <div class="sf"><div class="sf-check">✓</div> Promotions envoyées automatiquement</div>
+          <div class="sf"><div class="sf-check">✓</div> Intégration WhatsApp, Instagram, Facebook</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sector-content" id="sector-resto">
+    <div class="sector-grid">
+      <div class="sector-img">
+        <div class="sector-problems">
+          <div class="sector-problem"><div class="s-ico">📞</div><div><div class="s-title red">Téléphone qui sonne en cuisine</div><div class="s-text">Impossible de répondre quand vous cuisinez. Des réservations perdues.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">❓</div><div><div class="s-title red">Mêmes questions répétées</div><div class="s-text">"Vous êtes ouverts dimanche ?" "Vous avez du poisson ?" — 30 fois par jour.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">😞</div><div><div class="s-title red">Réservations manquées</div><div class="s-text">Clients qui appellent après fermeture et réservent ailleurs.</div></div></div>
+        </div>
+        <div class="sector-solution"><div class="s-ico">🤖</div><div><div class="s-title green">NexIA gère vos réservations 24h/24</div><div class="s-text">Répond aux questions, prend les réservations et envoie des confirmations automatiquement.</div></div></div>
+      </div>
+      <div class="sector-info">
+        <h3>Restaurants & fast-foods</h3>
+        <p>Concentrez-vous sur la cuisine. NexIA s'occupe de vos clients — réservations, menu, horaires, livraison — automatiquement.</p>
+        <div class="sector-features">
+          <div class="sf"><div class="sf-check">✓</div> Prise de réservations automatique 24h/24</div>
+          <div class="sf"><div class="sf-check">✓</div> Présentation du menu et plats du jour</div>
+          <div class="sf"><div class="sf-check">✓</div> Réponses sur horaires, localisation</div>
+          <div class="sf"><div class="sf-check">✓</div> Gestion des commandes à emporter</div>
+          <div class="sf"><div class="sf-check">✓</div> Rappels de réservation automatiques</div>
+          <div class="sf"><div class="sf-check">✓</div> Collecte d'avis Google automatique</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sector-content" id="sector-coiffeur">
+    <div class="sector-grid">
+      <div class="sector-img">
+        <div class="sector-problems">
+          <div class="sector-problem"><div class="s-ico">✂️</div><div><div class="s-title red">Impossible de répondre en plein travail</div><div class="s-text">Vous coiffez un client et votre téléphone sonne. Vous perdez un rendez-vous.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">📅</div><div><div class="s-title red">Agenda mal géré</div><div class="s-text">Double réservations, oublis, clients qui ne viennent pas sans rappel.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">💸</div><div><div class="s-title red">Clients perdus le soir</div><div class="s-text">Quelqu'un cherche un salon à 21h — vous ne répondez pas, il va ailleurs.</div></div></div>
+        </div>
+        <div class="sector-solution"><div class="s-ico">🤖</div><div><div class="s-title green">NexIA gère votre agenda automatiquement</div><div class="s-text">Prend les rendez-vous, envoie des rappels et réduit les no-shows de 78%.</div></div></div>
+      </div>
+      <div class="sector-info">
+        <h3>Salons de coiffure & beauté</h3>
+        <p>Travaillez sereinement. NexIA gère votre agenda, répond à vos clients et réduit les no-shows grâce aux rappels automatiques.</p>
+        <div class="sector-features">
+          <div class="sf"><div class="sf-check">✓</div> Prise de rendez-vous automatique</div>
+          <div class="sf"><div class="sf-check">✓</div> Rappels automatiques 24h avant le RDV</div>
+          <div class="sf"><div class="sf-check">✓</div> Présentation des prestations et tarifs</div>
+          <div class="sf"><div class="sf-check">✓</div> Réponses sur disponibilités et horaires</div>
+          <div class="sf"><div class="sf-check">✓</div> Fidélisation clients automatique</div>
+          <div class="sf"><div class="sf-check">✓</div> Collecte d'avis après chaque prestation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sector-content" id="sector-drop">
+    <div class="sector-grid">
+      <div class="sector-img">
+        <div class="sector-problems">
+          <div class="sector-problem"><div class="s-ico">🚚</div><div><div class="s-title red">Questions livraison sans fin</div><div class="s-text">"Où est ma commande ?" × 100 fois par jour. Impossible à gérer seul.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">😡</div><div><div class="s-title red">Clients impatients</div><div class="s-text">Délais longs du fournisseur = clients mécontents = mauvais avis.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">💬</div><div><div class="s-title red">Support 24h impossible seul</div><div class="s-text">Vos clients commandent à toute heure — vous ne pouvez pas tout gérer.</div></div></div>
+        </div>
+        <div class="sector-solution"><div class="s-ico">🤖</div><div><div class="s-title green">NexIA gère tout le support automatiquement</div><div class="s-text">Suivi commandes, délais, remboursements — sans vous, 24h/24.</div></div></div>
+      </div>
+      <div class="sector-info">
+        <h3>Dropshipping & vente en ligne</h3>
+        <p>Scalez votre business sans scaler votre support. NexIA gère des centaines de clients simultanément sans jamais se fatiguer.</p>
+        <div class="sector-features">
+          <div class="sf"><div class="sf-check">✓</div> Suivi de commandes automatique</div>
+          <div class="sf"><div class="sf-check">✓</div> Gestion des délais et retards fournisseur</div>
+          <div class="sf"><div class="sf-check">✓</div> Traitement des remboursements et litiges</div>
+          <div class="sf"><div class="sf-check">✓</div> Support multilingue (FR, EN)</div>
+          <div class="sf"><div class="sf-check">✓</div> Relance des clients inactifs</div>
+          <div class="sf"><div class="sf-check">✓</div> Rapport hebdomadaire des réclamations</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sector-content" id="sector-digital">
+    <div class="sector-grid">
+      <div class="sector-img">
+        <div class="sector-problems">
+          <div class="sector-problem"><div class="s-ico">📥</div><div><div class="s-title red">Leads non qualifiés</div><div class="s-text">Des dizaines de prospects pas prêts à acheter. Temps perdu.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">🔐</div><div><div class="s-title red">Problèmes d'accès répétés</div><div class="s-text">"Mon lien ne marche pas" — 20 fois par jour.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">😶</div><div><div class="s-title red">Prospects froids qui ne convertissent pas</div><div class="s-text">Quelqu'un visite votre page, hésite et disparaît sans acheter.</div></div></div>
+        </div>
+        <div class="sector-solution"><div class="s-ico">🤖</div><div><div class="s-title green">NexIA qualifie et convertit automatiquement</div><div class="s-text">Filtre les prospects, répond aux objections et pousse à l'achat 24h/24.</div></div></div>
+      </div>
+      <div class="sector-info">
+        <h3>Formations & produits digitaux</h3>
+        <p>Vendez plus sans travailler plus. NexIA qualifie vos prospects, répond à leurs objections et les pousse vers l'achat automatiquement.</p>
+        <div class="sector-features">
+          <div class="sf"><div class="sf-check">✓</div> Qualification automatique des prospects</div>
+          <div class="sf"><div class="sf-check">✓</div> Réponses aux objections sur le prix</div>
+          <div class="sf"><div class="sf-check">✓</div> Envoi automatique des accès et liens</div>
+          <div class="sf"><div class="sf-check">✓</div> Support technique basique automatisé</div>
+          <div class="sf"><div class="sf-check">✓</div> Upsell et cross-sell automatique</div>
+          <div class="sf"><div class="sf-check">✓</div> Relance des abandons de panier</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sector-content" id="sector-immo">
+    <div class="sector-grid">
+      <div class="sector-img">
+        <div class="sector-problems">
+          <div class="sector-problem"><div class="s-ico">📞</div><div><div class="s-title red">Appels intempestifs</div><div class="s-text">Des dizaines d'appels par jour pour des questions basiques sur les biens.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">👥</div><div><div class="s-title red">Prospects non qualifiés</div><div class="s-text">Vous perdez du temps avec des gens qui ne peuvent pas acheter.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">🏠</div><div><div class="s-title red">Visites manquées</div><div class="s-text">Un prospect vous contacte le soir — pas de réponse, il appelle un concurrent.</div></div></div>
+        </div>
+        <div class="sector-solution"><div class="s-ico">🤖</div><div><div class="s-title green">NexIA filtre et qualifie vos prospects</div><div class="s-text">Présente les biens, qualifie les acheteurs sérieux et planifie les visites.</div></div></div>
+      </div>
+      <div class="sector-info">
+        <h3>Agences immobilières</h3>
+        <p>Concentrez-vous sur les clients sérieux. NexIA filtre les prospects, présente vos biens et planifie les visites automatiquement.</p>
+        <div class="sector-features">
+          <div class="sf"><div class="sf-check">✓</div> Présentation automatique des biens</div>
+          <div class="sf"><div class="sf-check">✓</div> Qualification des acheteurs / locataires</div>
+          <div class="sf"><div class="sf-check">✓</div> Prise de rendez-vous de visite automatique</div>
+          <div class="sf"><div class="sf-check">✓</div> Réponses sur prix, surface, localisation</div>
+          <div class="sf"><div class="sf-check">✓</div> Suivi des dossiers en cours</div>
+          <div class="sf"><div class="sf-check">✓</div> Relance automatique des prospects froids</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sector-content" id="sector-clinic">
+    <div class="sector-grid">
+      <div class="sector-img">
+        <div class="sector-problems">
+          <div class="sector-problem"><div class="s-ico">📋</div><div><div class="s-title red">Agenda surchargé</div><div class="s-text">Secrétaire débordée, rendez-vous manqués, patients mécontents.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">🕐</div><div><div class="s-title red">Appels hors horaires</div><div class="s-text">Patients qui appellent après fermeture pour un rendez-vous.</div></div></div>
+          <div class="sector-problem"><div class="s-ico">❌</div><div><div class="s-title red">No-shows fréquents</div><div class="s-text">Des patients qui ne viennent pas sans rappel — du temps et de l'argent perdus.</div></div></div>
+        </div>
+        <div class="sector-solution"><div class="s-ico">🤖</div><div><div class="s-title green">NexIA gère votre agenda médical</div><div class="s-text">Prise de RDV, rappels, informations patients — 24h/24 automatiquement.</div></div></div>
+      </div>
+      <div class="sector-info">
+        <h3>Cliniques & cabinets médicaux</h3>
+        <p>Offrez un service patient exceptionnel. NexIA gère vos rendez-vous, réduit les no-shows et répond aux questions courantes automatiquement.</p>
+        <div class="sector-features">
+          <div class="sf"><div class="sf-check">✓</div> Prise de rendez-vous automatique 24h/24</div>
+          <div class="sf"><div class="sf-check">✓</div> Rappels de rendez-vous automatiques</div>
+          <div class="sf"><div class="sf-check">✓</div> Informations sur les services et tarifs</div>
+          <div class="sf"><div class="sf-check">✓</div> Gestion des annulations et reports</div>
+          <div class="sf"><div class="sf-check">✓</div> Réponses aux questions fréquentes patients</div>
+          <div class="sf"><div class="sf-check">✓</div> Collecte d'avis patients automatique</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="stag">Services</div>
+  <h2 class="stitle">Tout ce que votre agent IA peut faire</h2>
+  <p class="ssub">Des automatisations puissantes pour chaque aspect de votre business.</p>
+  <div class="services-grid">
+    <div class="scard"><div class="snew">Populaire</div><div class="sico ip">💬</div><h3>Support client 24h/24</h3><p>Répond instantanément à toutes les questions clients sur vos produits, services, prix et disponibilités.</p></div>
+    <div class="scard"><div class="sico it">📅</div><h3>Prise de rendez-vous</h3><p>Gère votre agenda automatiquement — réservations, confirmations, rappels et annulations.</p></div>
+    <div class="scard"><div class="sico ia">🛒</div><h3>Récupération paniers abandonnés</h3><p>Relance automatiquement les clients qui n'ont pas finalisé leur commande ou réservation.</p></div>
+    <div class="scard"><div class="sico ir">🎯</div><h3>Qualification de prospects</h3><p>Filtre et qualifie vos leads automatiquement. Vous ne recevez que les prospects sérieux.</p></div>
+    <div class="scard"><div class="sico ip">📣</div><h3>Campagnes de fidélisation</h3><p>Envoie des offres, promotions et messages personnalisés à vos clients existants automatiquement.</p></div>
+    <div class="scard"><div class="sico it">🔄</div><h3>Suivi commandes & livraisons</h3><p>Informe vos clients en temps réel du statut de leur commande sans aucune intervention.</p></div>
+    <div class="scard"><div class="sico ia">⭐</div><h3>Collecte d'avis automatique</h3><p>Demande des avis positifs après chaque achat ou prestation. Boostez votre réputation en continu.</p></div>
+    <div class="scard"><div class="sico ir">📊</div><h3>Rapports de performance</h3><p>Tableau de bord mensuel : messages traités, taux de satisfaction, ventes générées, économies.</p></div>
+    <div class="scard"><div class="sico ip">🌍</div><h3>Multi-langues</h3><p>Communique en français, anglais et autres langues selon la localisation de votre client.</p></div>
+    <div class="scard"><div class="sico it">🔗</div><h3>Intégration catalogue</h3><p>Synchronisé avec votre catalogue produits — mis à jour automatiquement à chaque changement.</p></div>
+    <div class="scard"><div class="sico ia">💳</div><h3>Guidage paiement</h3><p>Guide vos clients vers MTN Mobile Money, Orange Money ou tout autre mode de paiement accepté.</p></div>
+    <div class="scard"><div class="sico ir">🚨</div><h3>Escalade intelligente</h3><p>Détecte les situations complexes et vous transfère la conversation avec tout le contexte immédiatement.</p></div>
+  </div>
+</section>
+
+<!-- RÉSULTATS -->
+<section id="resultats" style="background:rgba(0,229,180,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);max-width:100%;padding:4rem 2rem">
+<div style="max-width:1200px;margin:0 auto">
+  <div class="stag">Résultats prouvés</div>
+  <h2 class="stitle">Ce que nos clients ont obtenu</h2>
+  <p class="ssub">Des résultats concrets, par secteur d'activité.</p>
+  <div class="proof-grid">
+    <div class="proof-card">
+      <div class="proof-sector" style="background:rgba(123,111,240,0.1);color:var(--accent)">🛒 Boutique mode — Douala</div>
+      <div class="proof-before-after">
+        <div class="pa-box before"><div class="pa-label red">Avant</div><div class="pa-val">6h</div><div class="pa-desc">Délai de réponse moyen</div></div>
+        <div class="pa-box after"><div class="pa-label green">Après</div><div class="pa-val">3s</div><div class="pa-desc">Délai de réponse avec NexIA</div></div>
+      </div>
+      <div class="proof-before-after">
+        <div class="pa-box before"><div class="pa-label red">Avant</div><div class="pa-val">40%</div><div class="pa-desc">Paniers abandonnés</div></div>
+        <div class="pa-box after"><div class="pa-label green">Après</div><div class="pa-val">+38%</div><div class="pa-desc">Hausse du chiffre d'affaires</div></div>
+      </div>
+      <div class="proof-quote">"Je ne réponds plus aux messages la nuit et mes ventes ont explosé. L'agent connaît ma boutique mieux que certains de mes employés."</div>
+      <div class="proof-author"><div class="proof-av" style="background:rgba(123,111,240,0.2);color:var(--accent)">SK</div><div><div class="proof-name">Sarah K.</div><div class="proof-role">Boutique mode en ligne · Douala</div></div></div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-sector" style="background:rgba(0,229,180,0.1);color:var(--accent2)">🍽️ Restaurant — Yaoundé</div>
+      <div class="proof-before-after">
+        <div class="pa-box before"><div class="pa-label red">Avant</div><div class="pa-val">15%</div><div class="pa-desc">Tables remplies le soir</div></div>
+        <div class="pa-box after"><div class="pa-label green">Après</div><div class="pa-val">95%</div><div class="pa-desc">Taux de remplissage</div></div>
+      </div>
+      <div class="proof-before-after">
+        <div class="pa-box before"><div class="pa-label red">Avant</div><div class="pa-val">0</div><div class="pa-desc">Réservations la nuit</div></div>
+        <div class="pa-box after"><div class="pa-label green">Après</div><div class="pa-val">24/7</div><div class="pa-desc">Réservations automatiques</div></div>
+      </div>
+      <div class="proof-quote">"L'agent prend les réservations même à minuit. Le week-end je n'ai plus de tables vides. Mes revenus ont augmenté de 40% en 3 semaines."</div>
+      <div class="proof-author"><div class="proof-av" style="background:rgba(0,229,180,0.15);color:var(--accent2)">JN</div><div><div class="proof-name">Jean-Paul N.</div><div class="proof-role">Restaurant Le Baobab · Yaoundé</div></div></div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-sector" style="background:rgba(255,184,0,0.1);color:var(--gold)">✂️ Salon de beauté — Douala</div>
+      <div class="proof-before-after">
+        <div class="pa-box before"><div class="pa-label red">Avant</div><div class="pa-val">35%</div><div class="pa-desc">Taux de no-shows</div></div>
+        <div class="pa-box after"><div class="pa-label green">Après</div><div class="pa-val">7%</div><div class="pa-desc">No-shows avec rappels auto</div></div>
+      </div>
+      <div class="proof-before-after">
+        <div class="pa-box before"><div class="pa-label red">Avant</div><div class="pa-val">2h</div><div class="pa-desc">Perdu par jour au téléphone</div></div>
+        <div class="pa-box after"><div class="pa-label green">Après</div><div class="pa-val">0h</div><div class="pa-desc">Agenda géré automatiquement</div></div>
+      </div>
+      <div class="proof-quote">"Les no-shows ont chuté de 80%. L'agent envoie des rappels automatiques. Je ne perds plus de créneaux vides et je génère 30% de revenus en plus."</div>
+      <div class="proof-author"><div class="proof-av" style="background:rgba(255,184,0,0.15);color:var(--gold)">AM</div><div><div class="proof-name">Aminata M.</div><div class="proof-role">Salon de beauté · Douala</div></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FEATURES -->
+<section>
+  <div class="stag">Technologie</div>
+  <h2 class="stitle">Une IA vraiment intelligente</h2>
+  <p class="ssub">Bien plus qu'un chatbot basique — un vrai agent qui comprend, apprend et s'améliore.</p>
+  <div class="features-big">
+    <div class="features-list">
+      <div class="fi"><div class="fi-ico">⚡</div><div><h4>Réponse en moins de 3 secondes</h4><p>Chaque client reçoit une réponse immédiate à toute heure, tous les jours, sans exception.</p></div></div>
+      <div class="fi"><div class="fi-ico">🧠</div><div><h4>Compréhension naturelle du langage</h4><p>Comprend les fautes de frappe, l'argot local, les abréviations et questions ambiguës.</p></div></div>
+      <div class="fi"><div class="fi-ico">🎭</div><div><h4>Personnalité sur mesure</h4><p>L'agent parle avec votre ton, votre style et votre nom. Vos clients ne voient aucune différence.</p></div></div>
+      <div class="fi"><div class="fi-ico">📈</div><div><h4>Apprentissage continu</h4><p>Plus il reçoit de questions, plus il devient précis et performant pour votre activité.</p></div></div>
+      <div class="fi"><div class="fi-ico">🛡️</div><div><h4>Contrôle total à tout moment</h4><p>Tableau de bord simple pour voir toutes les conversations et intervenir quand vous voulez.</p></div></div>
+    </div>
+    <div class="metrics-box">
+      <div class="metrics-title">Résultats moyens observés chez nos clients</div>
+      <div class="metric-row"><div class="metric-label">Satisfaction client</div><div class="metric-bar"><div class="metric-fill" style="width:92%;background:var(--accent2)"></div></div><div class="metric-val">92%</div></div>
+      <div class="metric-row"><div class="metric-label">Réduction no-shows</div><div class="metric-bar"><div class="metric-fill" style="width:78%;background:var(--accent)"></div></div><div class="metric-val">78%</div></div>
+      <div class="metric-row"><div class="metric-label">Hausse du CA</div><div class="metric-bar"><div class="metric-fill" style="width:35%;background:var(--gold)"></div></div><div class="metric-val">+35%</div></div>
+      <div class="metric-row"><div class="metric-label">Messages traités</div><div class="metric-bar"><div class="metric-fill" style="width:95%;background:var(--accent2)"></div></div><div class="metric-val">95%</div></div>
+      <div class="metric-row"><div class="metric-label">Paniers récupérés</div><div class="metric-bar"><div class="metric-fill" style="width:45%;background:var(--accent)"></div></div><div class="metric-val">45%</div></div>
+      <div style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--border);display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center">
+        <div style="text-align:center"><div style="font-family:'Clash Display',sans-serif;font-size:1.6rem;font-weight:700;color:var(--white)">-90%</div><div style="font-size:11px;color:var(--muted)">Moins cher qu'un employé</div></div>
+        <div style="text-align:center"><div style="font-family:'Clash Display',sans-serif;font-size:1.6rem;font-weight:700;color:var(--white)">0</div><div style="font-size:11px;color:var(--muted)">Congés, arrêts maladie</div></div>
+        <div style="text-align:center"><div style="font-family:'Clash Display',sans-serif;font-size:1.6rem;font-weight:700;color:var(--white)">∞</div><div style="font-size:11px;color:var(--muted)">Clients simultanés</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section style="background:rgba(255,107,107,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);max-width:100%;padding:4rem 2rem">
+<div style="max-width:1200px;margin:0 auto">
+  <div class="stag">Comparaison</div>
+  <h2 class="stitle">NexIA vs un employé classique</h2>
+  <p class="ssub">La même efficacité, pour une fraction du prix.</p>
+  <div class="compare-grid">
+    <div class="compare-card">
+      <div class="compare-head bad">❌ Employé classique</div>
+      <div class="compare-body">
+        <div class="compare-item"><div class="ci-ico">😴</div><div>Travaille 8h/jour maximum — vous perdez des ventes la nuit</div></div>
+        <div class="compare-item"><div class="ci-ico">🤒</div><div>Congés maladie, jours fériés, absences imprévues</div></div>
+        <div class="compare-item"><div class="ci-ico">💸</div><div>100 000 FCFA/mois minimum + charges sociales</div></div>
+        <div class="compare-item"><div class="ci-ico">⏱️</div><div>Formation longue de plusieurs semaines</div></div>
+        <div class="compare-item"><div class="ci-ico">😤</div><div>Erreurs humaines, mauvaises réponses, mauvaise humeur</div></div>
+        <div class="compare-item"><div class="ci-ico">👤</div><div>Un seul client à la fois</div></div>
+      </div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-head good">✅ Agent NexIA</div>
+      <div class="compare-body">
+        <div class="compare-item"><div class="ci-ico">🌙</div><div>Disponible 24h/24, 7j/7 — aucune vente perdue</div></div>
+        <div class="compare-item"><div class="ci-ico">♾️</div><div>Jamais malade, jamais absent, jamais fatigué</div></div>
+        <div class="compare-item"><div class="ci-ico">💚</div><div>À partir de 8 000 FCFA/mois seulement</div></div>
+        <div class="compare-item"><div class="ci-ico">⚡</div><div>Opérationnel en 3 à 7 jours, zéro formation</div></div>
+        <div class="compare-item"><div class="ci-ico">🎯</div><div>Réponses parfaites et cohérentes à chaque fois</div></div>
+        <div class="compare-item"><div class="ci-ico">👥</div><div>Des centaines de clients simultanément</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CANAUX -->
+<section id="canaux">
+  <div class="stag">Canaux</div>
+  <h2 class="stitle">Là où sont vos clients</h2>
+  <p class="ssub">Un seul agent, déployé partout en même temps.</p>
+  <div class="channels-grid">
+    <div class="channel"><div class="channel-ico">📱</div><h4>WhatsApp Business</h4><p>Canal n°1 en Afrique</p></div>
+    <div class="channel"><div class="channel-ico">📸</div><h4>Instagram DM</h4><p>Réponses auto aux DM</p></div>
+    <div class="channel"><div class="channel-ico">👥</div><h4>Facebook Messenger</h4><p>Chatbot intégré</p></div>
+    <div class="channel"><div class="channel-ico">🌐</div><h4>Site web</h4><p>Widget de chat</p></div>
+    <div class="channel"><div class="channel-ico">📧</div><h4>Email</h4><p>Réponses automatiques</p></div>
+    <div class="channel"><div class="channel-ico">🛍️</div><h4>TikTok Shop</h4><p>Commentaires & DM</p></div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section style="background:rgba(123,111,240,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);max-width:100%;padding:4rem 2rem">
+<div style="max-width:1200px;margin:0 auto">
+  <div class="stag">Processus</div>
+  <h2 class="stitle">Opérationnel en 3 à 7 jours</h2>
+  <p class="ssub">On s'occupe de tout. Vous ne faites rien techniquement.</p>
+  <div class="how-grid">
+    <div class="step"><div class="step-n">01</div><h3>Appel découverte</h3><p>On analyse votre activité et vos besoins spécifiques.</p></div>
+    <div class="step"><div class="step-n">02</div><h3>Configuration</h3><p>On entraîne l'agent sur votre catalogue et votre ton.</p></div>
+    <div class="step"><div class="step-n">03</div><h3>Intégration</h3><p>On connecte à vos canaux. Zéro technique pour vous.</p></div>
+    <div class="step"><div class="step-n">04</div><h3>Test & ajustement</h3><p>On teste ensemble jusqu'à la perfection.</p></div>
+    <div class="step" style="border-right:none"><div class="step-n">05</div><h3>Suivi mensuel</h3><p>Rapport + optimisation continue chaque mois.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- GARANTIE -->
+<section id="garantie">
+  <div class="stag">Garantie</div>
+  <h2 class="stitle">Zéro risque. Vraiment.</h2>
+  <div class="garantie-block">
+    <div class="garantie-top">
+      <div style="width:76px;height:76px;border-radius:50%;background:rgba(0,229,180,0.1);border:2px solid rgba(0,229,180,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.8rem">🛡️</div>
+      <div class="garantie-badge">✓ Garantie officielle NexIA</div>
+      <h2 style="margin-top:1rem"><span>Satisfait ou remboursé</span><br>— sans question posée</h2>
+      <p>On est tellement confiants dans nos agents IA qu'on prend tout le risque à votre place. Vous testez pendant 14 jours. Si vous n'êtes pas convaincu, on vous rembourse intégralement. Un message suffit. Point.</p>
+    </div>
+    <div class="garantie-steps">
+      <div class="gs"><div class="gs-num">14</div><h4>jours d'essai</h4><p>Testez en conditions réelles pendant 14 jours complets.</p></div>
+      <div class="gs"><div class="gs-num">100%</div><h4>remboursé</h4><p>Pas satisfait ? Remboursement intégral en 48h. Sans condition.</p></div>
+      <div class="gs"><div class="gs-num">0</div><h4>question posée</h4><p>Un message WhatsApp suffit. Pas de formulaire ni de justification.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:rgba(123,111,240,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);max-width:100%;padding:4rem 2rem">
+<div style="max-width:1200px;margin:0 auto">
+  <div class="stag">FAQ</div>
+  <h2 class="stitle">Tout ce que vous voulez savoir</h2>
+  <div class="faq-list">
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Est-ce que mes clients sauront qu'ils parlent à une IA ? <span class="faq-arr">+</span></div><div class="faq-a">Non. L'agent utilise le nom et le ton que vous choisissez. Vos clients auront l'impression de parler à un membre de votre équipe. Vous pouvez le nommer comme vous voulez.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Est-ce que ça marche pour mon secteur d'activité ? <span class="faq-arr">+</span></div><div class="faq-a">Oui. NexIA s'adapte à tous les secteurs : e-commerce, restaurant, coiffeur, immobilier, clinique, formation, dropshipping et bien d'autres. Chaque agent est configuré spécifiquement pour votre activité.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Je n'ai aucune compétence technique — est-ce que je peux utiliser NexIA ? <span class="faq-arr">+</span></div><div class="faq-a">Absolument. On s'occupe de tout : configuration, intégration, tests. Vous n'avez qu'à nous donner les informations sur votre activité. Zéro compétence technique requise.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Combien de temps pour que l'agent soit opérationnel ? <span class="faq-arr">+</span></div><div class="faq-a">Entre 3 et 7 jours selon la complexité de votre activité. Une petite boutique ou un salon sera prêt en 3 jours. Une activité plus complexe peut nécessiter jusqu'à 7 jours.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Que se passe-t-il si l'agent ne sait pas répondre ? <span class="faq-arr">+</span></div><div class="faq-a">L'agent vous notifie immédiatement et vous transfère la conversation avec tout le contexte. Vous intervenez uniquement quand c'est vraiment nécessaire.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Comment fonctionne la garantie satisfait ou remboursé ? <span class="faq-arr">+</span></div><div class="faq-a">Dans les 14 jours suivant l'installation, si vous n'êtes pas satisfait, envoyez-nous un message WhatsApp. Remboursement intégral en 48h. Aucune question posée, aucune condition.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">L'agent fonctionne-t-il avec Mobile Money et Orange Money ? <span class="faq-arr">+</span></div><div class="faq-a">Oui. L'agent guide vos clients vers MTN Mobile Money, Orange Money ou tout autre mode de paiement que vous acceptez. Il s'adapte complètement à votre processus de vente.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Puis-je modifier les réponses de l'agent moi-même ? <span class="faq-arr">+</span></div><div class="faq-a">Oui. Vous avez accès à un tableau de bord simple pour voir toutes les conversations, modifier les réponses et ajuster le comportement de l'agent à tout moment.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Que se passe-t-il si je veux arrêter ? <span class="faq-arr">+</span></div><div class="faq-a">Vous pouvez arrêter à tout moment, sans préavis et sans frais. Nous vous restituons toutes les données de votre activité. Aucun engagement long terme.</div></div>
+  </div>
+</div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section" id="contact">
+  <h2>Prêt à automatiser<br>votre business avec l'IA ?</h2>
+  <p>Choisissez votre moyen de contact préféré — on vous répond sous 2h.</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/237671398551?text=Bonjour%20Marcel%2C%20je%20souhaite%20obtenir%20une%20d%C3%A9mo%20de%20NexIA." target="_blank" class="btn btn-teal" style="padding:.8rem 2rem;font-size:15px;text-decoration:none">💬 Écrire sur WhatsApp</a>
+    <a href="mailto:nkougangmarcel2@gmail.com" class="btn btn-outline" style="padding:.8rem 2rem;font-size:15px;text-decoration:none">✉️ Envoyer un email</a>
+  </div>
+  <div class="success-msg" id="successMsg" style="display:none">✅ Merci ! Marcel vous répondra très bientôt.</div>
+  <div class="cta-reassurance">
+    <div class="cta-re-item">✅ Aucun spam</div>
+    <div class="cta-re-item">✅ Sans engagement</div>
+    <div class="cta-re-item">✅ Réponse sous 2h</div>
+    <div class="cta-re-item">✅ Installation gratuite</div>
+  </div>
+  <div class="delay-badges" style="margin-top:2rem">
+    <div class="delay-badge"><span class="dbdot" style="background:var(--accent2)"></span> Boutique simple : 3 jours</div>
+    <div class="delay-badge"><span class="dbdot" style="background:var(--accent)"></span> Activité standard : 5 jours</div>
+    <div class="delay-badge"><span class="dbdot" style="background:var(--gold)"></span> Activité complexe : 7 jours</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Nex<span>IA</span></div>
+      <p>Agents IA pour toutes les entreprises — e-commerce, restaurants, salons, PME au Cameroun et en Afrique.</p>
+    </div>
+    <div class="footer-contact">
+      <strong style="font-size:13px;color:var(--text);margin-bottom:.3rem">Contact direct</strong>
+      <a href="https://wa.me/237VOTRE_NUMERO" onclick="openWhatsApp()">📱 WhatsApp</a>
+      <a href="/cdn-cgi/l/email-protection#accfc3c2d8cdcfd8ecc2c9d4c5cd82cdc5">✉️ <span class="__cf_email__" data-cfemail="91f2feffe5f0f2e5d1fff4e9f8f0bff0f8">[email&#160;protected]</span></a>
+      <a href="https://www.linkedin.com/in/marcel-nkougang-automation" target="_blank">💼 LinkedIn</a>
+      <span style="font-size:12px;color:var(--muted)">📍 Yaoundé, Cameroun</span>
+    </div>
+    <div class="footer-links-col">
+      <h4>Navigation</h4>
+      <a href="#apropos">À propos</a>
+      <a href="#secteurs">Secteurs</a>
+      <a href="#services">Services</a>
+      <a href="#resultats">Résultats</a>
+      <a href="#garantie">Garantie</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="footer-links-col">
+      <h4>Légal</h4>
+      <a href="#">Mentions légales</a>
+      <a href="#">Politique de confidentialité</a>
+      <a href="#">Conditions d'utilisation</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 NexIA — Tous droits réservés · Yaoundé, Cameroun</p>
+    <p>Conçu par Marcel Nkougang</p>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-sticky" id="mobileSticky">
+  <div class="mobile-sticky-inner">
+    <a href="https://wa.me/237671398551?text=Bonjour%20Marcel%2C%20je%20souhaite%20obtenir%20une%20d%C3%A9mo%20de%20NexIA." target="_blank" class="btn btn-teal" style="text-decoration:none;justify-content:center">💬 WhatsApp</a>
+    <a href="mailto:nkougangmarcel2@gmail.com" class="btn btn-outline" style="text-decoration:none;justify-content:center;flex:1">✉️ Email</a>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const SHEET_URL = "COLLE_TON_URL_GOOGLE_SCRIPT_ICI";
+
+function toggleContact(){
+  const d=document.getElementById('contactDropdown');
+  d.style.display=d.style.display==='none'?'block':'none';
+}
+document.addEventListener('click',function(e){
+  const btn=e.target.closest('[onclick="toggleContact()"]');
+  const dd=document.getElementById('contactDropdown');
+  if(!btn && dd) dd.style.display='none';
+});
+
+function toggleMenu(){
+  const menu=document.getElementById('mobileMenu');
+  const btn=document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+function showSector(e,id){
+  document.querySelectorAll('.sector-content').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('sector-'+id).classList.add('active');
+  e.target.classList.add('active');
+}
+
+function toggleFaq(el){
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)el.classList.add('open');
+}
+
+async function submitNumber(){
+  const num=document.getElementById('waInput').value.trim();
+  if(!num){alert('Veuillez entrer votre numéro WhatsApp');return;}
+  if(SHEET_URL !== "COLLE_TON_URL_GOOGLE_SCRIPT_ICI"){
+    try{await fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:JSON.stringify({numero:num,date:new Date().toLocaleString()})});}catch(e){}
+  }
+  document.getElementById('waInput').value='';
+  document.getElementById('successMsg').style.display='block';
+}
+
+// Hide mobile sticky when at CTA section
+const observer = new IntersectionObserver((entries)
